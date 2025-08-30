@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 const BASE_URL = 'http://localhost:8000';
 
-/*  TODO: Here's a starting point of playwright tests written by Copilot.
+/*  TODO 5: Here's a starting point of playwright tests written by Copilot.
     1. Run the tests. Did they fail? If so, why? What went wrong? 
         Note that to run the playwright tests you need to have the server running!
     2. Investigate the true behavior of Agify and our server proxy.

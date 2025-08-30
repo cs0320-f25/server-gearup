@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+// TODO 4: This zod schema doesn't seem very defensive. Fix it!
+
 /**
  * Zod schema defining a name and age.
  */
