@@ -9,7 +9,8 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "test": "vitest run",
-    "clean": "rimraf dist"
+    "playwright": "npx playwright test",
+    "clean": "rimraf dist node_modules package-lock.json"
   },
   "author": "",
   "license": "ISC",
@@ -19,8 +20,10 @@
     "zod": "^3.25.67"
   },
   "devDependencies": {
+    "@playwright/test": "^1.55.0",
     "@types/express": "^4.17.21",
     "@types/node": "^20.19.7",
+    "playwright": "^1.55.0",
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2",

@@ -14,16 +14,10 @@ See an example function in the mockFetchAge.ts file. */
  * @param name - Name to fetch age data for.
  * @returns Age of the person or null if not found.
  */
-export async function fetchAgeWithAgify(name: String) {
-  let age: number | null = null;
+export async function fetchAgeWithAgify(name: String): Promise<any> {
+  const response = await fetch(`https://api.agify.io/?name=${name}`);
+  const data = await response.json();
 
-  try {
-    const response = await fetch(`https://api.agify.io/?name=${name}`);
-    const data = await response.json();
-    age = data.age || null;
-  } catch (err) {
-    console.error("Agify fetch error:", err);
-  }
-
-  return age;
+  // Return only the age from the response
+  return data.age || null;
 }

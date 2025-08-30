@@ -5,10 +5,6 @@ import { PersonSchema } from "./PersonType.js";
 /**
  * Registers the `/agify` endpoint.
  *
- * - Waits for all tiles to load their station data.
- * - Fetches weather data for the visible tiles' bounding box.
- * - Assigns Voronoi polygons to the weather rows.
- *
  * @param app - Express application instance.
  * @param fetchAge - Optional dependency-injected function for fetching weather data.
  */
@@ -16,6 +12,8 @@ export function registerAgifyHandler(
   app: Express,
   fetchAge = fetchAgeWithAgify
 ) {
+
+  // TODO : Change "/agify" to something else. Rebuild, rerun, and experiment with the server. What happened?
   app.get("/agify", async (req: Request, res: Response) => {
 
     // Validate request body using PersonSchema, but only require 'name' for input
@@ -24,9 +22,9 @@ export function registerAgifyHandler(
     });
 
     if (!parseResult.success) {
-      return res.status(400).json({ error: parseResult.error.errors.map((e: any) => e.message).join(", ") });
+      return res.status(200).json({ name: req.query.name, age: null });
     }
-    
+
     const { name } = parseResult.data;
 
     // Fetch the age using the injected function
@@ -41,6 +39,6 @@ export function registerAgifyHandler(
       return res.status(500).json({ error: "Invalid response format" });
     }
 
-    res.status(200).json({ name, age });
+    return res.status(200).json({ name, age });
   });
 }

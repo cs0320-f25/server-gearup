@@ -1,52 +1,23 @@
-import express, { Express } from "express";
+import express from "express";
 import { registerAgifyHandler } from "./agify/agifyHandler.js";
 import { fetchAgeWithAgify } from "./agify/fetchAgeServices.js";
 
 /**
- * Class representing the backend server application.
+ * Initializes and starts the Express server.
+ * @param port - The port number to listen on (default: 8000)
  */
-export class ServerApp {
-  public app: Express;
-  private port: number;
+export function startServer(port: number = 8000): void {
+  const app = express();
+  app.use(express.json({ limit: "5mb" }));
 
-  /**
-   * Creates a new ServerApp instance.
-   *
-   * @param port - The port number the server listens on (default: 8000).
-   */
-  constructor(port: number = 8000) {
-    this.app = express();
-    this.app.use(express.json({ limit: "5mb" }));
-    this.port = port;
-    this.registerHandlers();
-  }
+  // Register our endpoint
+  registerAgifyHandler(app, fetchAgeWithAgify);
 
-  /**
-   * Registers all route handlers for the server.
-   */
-  private registerHandlers() {
-    // This is where you would pass in a mock source, eg mockFetchAge
-    registerAgifyHandler(this.app, fetchAgeWithAgify);
-  }
-
-  /**
-   * Starts the Express server on the configured port.
-   */
-  public start() {
-    this.app.listen(this.port, () => {
-      console.log(`Server running at http://localhost:${this.port}`);
-    });
-  }
-
-  /**
-   * Returns the underlying Express app instance.
-   *
-   * @returns The Express application.
-   */
-  public getApp(): Express {
-    return this.app;
-  }
+  app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+  });
 }
 
-const server = new ServerApp(8000);
-server.start();
+// TODO 1: build and start the server, and try out some requests. Investigate the code!
+// Start the server
+startServer(8000);
