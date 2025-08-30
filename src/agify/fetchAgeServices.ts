@@ -1,5 +1,3 @@
-import { z } from "zod";
-
 /* In other files, you could add more functions that fetch age using other means,
 such as a hardcoded hashmap, etc. Then you could use pass those functions into the
 registerAgifyHandler in server to provide alternative age fetching methods. 

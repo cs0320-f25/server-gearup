@@ -1,5 +1,3 @@
-import { z } from "zod";
-
 /**
  * Returns hardcoded age every time.
  *
