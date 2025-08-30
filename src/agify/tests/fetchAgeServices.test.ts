@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { fetchAgeWithAgify } from "../fetchAgeServices";
-import { PersonSchema } from "../PersonType";
+import { PersonSchema } from "../personType";
 import { mockFetchAge } from "../mockFetchAge";
 
 describe("mockFetchAge", () => {

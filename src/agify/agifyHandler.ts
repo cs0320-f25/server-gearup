@@ -1,6 +1,6 @@
 import { Express, Request, Response } from "express";
 import { fetchAgeWithAgify } from "./fetchAgeServices.js";
-import { PersonSchema } from "./PersonType.js";
+import { PersonSchema } from "./personType.js";
 
 /**
  * Registers the `/agify` endpoint.
