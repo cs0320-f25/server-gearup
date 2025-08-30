@@ -31,7 +31,7 @@ Build with `npm run build`, then run wtih `npm run start`.
 ## TODOs:
 
 1. src/server.ts: Build and run the server, investigate the code, and try out some get requests
-2. src/agify/tests/fetchAgeServices.test.ts: Take a look at how we validate the respoonse in the second test
-3. src/agify/agifyHandler.ts: Change "/agify" to something else and investigate the result
+2. src/agify/agifyHandler.ts: Change "/agify" to something else and investigate the result
+3. src/agify/tests/fetchAgeServices.test.ts: Take a look at how we validate the response in the second test
 4. src/agify/personType.ts: Make the Zod schema defensive
 5. tests/server.test.ts: Fix the Playwright tests

@@ -13,7 +13,7 @@ export function registerAgifyHandler(
   fetchAge = fetchAgeWithAgify
 ) {
 
-  // TODO : Change "/agify" to something else. Rebuild, rerun, and experiment with the server. What happened?
+  // TODO 2: Change "/agify" to something else. Rebuild, rerun, and experiment with the server. What happened?
   app.get("/agify", async (req: Request, res: Response) => {
 
     // Validate request body using PersonSchema, but only require 'name' for input
