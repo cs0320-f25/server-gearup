@@ -8,8 +8,8 @@
     "dev": "node --loader ts-node/esm src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
-    "test": "vitest run",
-    "playwright": "npx playwright test",
+    "test": "vitest",
+    "playwright": "playwright test",
     "clean": "rimraf dist node_modules package-lock.json"
   },
   "author": "",
