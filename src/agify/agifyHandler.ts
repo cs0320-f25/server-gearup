@@ -16,17 +16,12 @@ export function registerAgifyHandler(
   // TODO 2: Change "/agify" to something else. Rebuild, rerun, and experiment with the server. What happened?
   app.get("/agify", async (req: Request, res: Response) => {
 
-    // Validate request body using PersonSchema, but only require 'name' for input
-    const parseResult = PersonSchema.omit({ age: true }).safeParse({
-      name: req.query.name
-    });
+    const name = req.query.name;
 
-    if (!parseResult.success) {
-      return res.status(200).json({ name: req.query.name, age: null });
+    if (typeof name !== "string" || name.trim() === "") {
+      return res.status(200).json({ name: name ?? null, age: null });
     }
-
-    const { name } = parseResult.data;
-
+    
     // Fetch the age using the injected function
     const age = await fetchAge(name);
     if (age === null) {
